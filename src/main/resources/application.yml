@@ -1,0 +1,44 @@
+spring:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://emo-database.ctxcxnjslr2o.ap-northeast-2.rds.amazonaws.com:3306/emo
+    username: ${DB_USERNAME:emo}
+    password: rlaehrud9919
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+    database: mysql
+
+
+  cache:
+    type: simple
+
+auth:
+  jwt:
+    secretKey: ${JWT_SECRET_KEY:rkGU45258GGhiolLO2465TFY5345kGU45258GGhiolLO2465TFY5345}
+    accessExp: ${JWT_ACCESS_EXP:4000000000}
+    refreshExp: ${JWT_REFRESH_EXP:4000000000}
+    header: ${JWT_HEADER:Authorization}
+    prefix: ${JWT_PREFIX:Bearer}
+
+cool:
+  apiKey: NCSHJVDNOSQXOJXS
+  secretKey: RRGO7ZXTBBGCS1NZTC2AJFLJYWWABJEK
+  phone: 01024672532
+
+external:
+  api:
+    diary_url: http://192.168.1.8:6600/diary
+    fortune_url: http://192.168.1.8:6600/fortune
+gemini:
+  api:
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}
+    key: AIzaSyAFik_Tdz-M6__hmJY1iPjWnX7uJn5By3M
